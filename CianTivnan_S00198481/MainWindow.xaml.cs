@@ -15,9 +15,12 @@ using System.Windows.Shapes;
 
 namespace CianTivnan_S00198481
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /*
+     * Author - Cian Tivnan
+     * Date - 11/05/2021
+     * Desc - Object Oriented Development Final Exam WPF Application
+
+    */
     public partial class MainWindow : Window
     {
         GameData db = new GameData();
