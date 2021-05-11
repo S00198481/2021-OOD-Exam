@@ -12,8 +12,8 @@ namespace Tests
         {
             //arrange
             Game game1 = new Game(50);
-            int change = 10;
-            int expected = 40;
+            decimal change = 10;
+            decimal expected = 40;
 
             //act
             game1.DecreasePrice(change);
@@ -27,8 +27,8 @@ namespace Tests
         {
             //arrange
             Game game2 = new Game(40);
-            int change = 30;
-            int expected = 10;
+            decimal change = 30;
+            decimal expected = 10;
 
             //act
             game2.DecreasePrice(change);
