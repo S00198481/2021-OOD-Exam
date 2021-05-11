@@ -5,7 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CianTivnan_S00198481"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded_1">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded_1"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}">
+    <Window.Resources>
+        <DataTemplate x:Key="listBoxTemplate">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Image Source="C:\Users\ciant\Desktop\CollegeNotes\Sem4\OOD\2021Exam\CianTivnan_S00198481\CianTivnan_S00198481\images\icon.png" Height="50" Width="50"/>
+                <StackPanel>
+                    <TextBlock Text="{Binding Name}" Margin="5" FontSize="12"/>
+                    <TextBlock Text="{Binding CriticScore}" Margin="5" FontSize="12"/>
+                </StackPanel>
+                
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -18,7 +32,8 @@
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="lbx_Games" HorizontalAlignment="Left" Height="279" Margin="149,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="201" DisplayMemberPath="Name" SelectionChanged="lbx_Games_SelectionChanged"/>
+
+        <ListBox ItemTemplate="{StaticResource listBoxTemplate}" x:Name="lbx_Games" HorizontalAlignment="Left" Height="279" Margin="149,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="201" SelectionChanged="lbx_Games_SelectionChanged"/>
         <TextBlock x:Name="tblk_Game" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="64" Width="268" FontSize="24"/>
         <Image x:Name="img_Game" Grid.Column="2" HorizontalAlignment="Left" Height="210" Margin="10,79,0,0" Grid.Row="1" VerticalAlignment="Top" Width="268"/>
         <ComboBox x:Name="cbx_Platform" HorizontalAlignment="Left" Margin="24,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="cbx_Platform_SelectionChanged">

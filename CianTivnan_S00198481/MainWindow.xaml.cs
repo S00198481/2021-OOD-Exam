@@ -43,12 +43,18 @@ namespace CianTivnan_S00198481
         {
             Game SelectedGame = lbx_Games.SelectedItem as Game;
 
-            tblk_Game.Text = SelectedGame.Name;
-            img_Game.Source = new BitmapImage(new Uri(SelectedGame.GameImage, UriKind.Relative));
+            if (SelectedGame != null)
+            {
+                tblk_Game.Text = SelectedGame.Name;
+                img_Game.Source = new BitmapImage(new Uri(SelectedGame.GameImage, UriKind.Relative));
+            }
         }
 
         private void cbx_Platform_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            tblk_Game.Text = null;
+            img_Game.Source = null;
+
             ComboBoxItem item = (ComboBoxItem)cbx_Platform.SelectedItem;
             string selection = item.Content.ToString();
 
