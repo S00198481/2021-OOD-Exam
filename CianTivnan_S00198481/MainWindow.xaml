@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CianTivnan_S00198481"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded_1">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lbx_Games" HorizontalAlignment="Left" Height="279" Margin="149,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="201" DisplayMemberPath="Name" SelectionChanged="lbx_Games_SelectionChanged"/>
+        <TextBlock x:Name="tblk_Game" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="64" Width="268" FontSize="24"/>
+        <Image x:Name="img_Game" Grid.Column="2" HorizontalAlignment="Left" Height="210" Margin="10,79,0,0" Grid.Row="1" VerticalAlignment="Top" Width="268"/>
+        <ComboBox x:Name="cbx_Platform" HorizontalAlignment="Left" Margin="24,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

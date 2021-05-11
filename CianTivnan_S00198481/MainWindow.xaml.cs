@@ -20,10 +20,31 @@ namespace CianTivnan_S00198481
     /// </summary>
     public partial class MainWindow : Window
     {
-        GameData db = new GameData();
+        List<Game> AllGames;
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            GameData db = new GameData();
+
+            var query = from p in db.Games
+                        select p;
+
+            AllGames = query.ToList();
+
+            lbx_Games.ItemsSource = AllGames;
+        }
+
+        private void lbx_Games_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Game SelectedGame = lbx_Games.SelectedItem as Game;
+
+            tblk_Game.Text = SelectedGame.Name;
+            img_Game.Source = new BitmapImage(new Uri(SelectedGame.GameImage, UriKind.Relative));
         }
     }
 }
