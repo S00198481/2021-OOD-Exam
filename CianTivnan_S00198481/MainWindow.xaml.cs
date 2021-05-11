@@ -20,6 +20,7 @@ namespace CianTivnan_S00198481
     /// </summary>
     public partial class MainWindow : Window
     {
+        GameData db = new GameData();
         List<Game> AllGames;
         public MainWindow()
         {
@@ -29,7 +30,6 @@ namespace CianTivnan_S00198481
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            GameData db = new GameData();
 
             var query = from p in db.Games
                         select p;
@@ -45,6 +45,74 @@ namespace CianTivnan_S00198481
 
             tblk_Game.Text = SelectedGame.Name;
             img_Game.Source = new BitmapImage(new Uri(SelectedGame.GameImage, UriKind.Relative));
+        }
+
+        private void cbx_Platform_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem item = (ComboBoxItem)cbx_Platform.SelectedItem;
+            string selection = item.Content.ToString();
+
+            switch(selection)
+            {
+                case "Any":
+                    lbx_Games.ItemsSource = null;
+                    AllGames = null;
+                    var query = from p in db.Games
+                                select p;
+
+                    AllGames = query.ToList();
+
+                    lbx_Games.ItemsSource = AllGames;
+                    break;
+
+                case "Playstation":
+                    lbx_Games.ItemsSource = null;
+                    AllGames = null;
+                    var query2 = from p in db.Games
+                                 where p.Platform.Contains("PS")
+                                select p;
+
+                    AllGames = query2.ToList();
+
+                    lbx_Games.ItemsSource = AllGames;
+                    break;
+
+                case "Xbox":
+                    lbx_Games.ItemsSource = null;
+                    AllGames = null;
+                    var query3 = from p in db.Games
+                                 where p.Platform.Contains("Xbox")
+                                 select p;
+
+                    AllGames = query3.ToList();
+
+                    lbx_Games.ItemsSource = AllGames;
+                    break;
+
+                case "Switch":
+                    lbx_Games.ItemsSource = null;
+                    AllGames = null;
+                    var query4 = from p in db.Games
+                                 where p.Platform.Contains("Switch")
+                                 select p;
+
+                    AllGames = query4.ToList();
+
+                    lbx_Games.ItemsSource = AllGames;
+                    break;
+
+                case "PC":
+                    lbx_Games.ItemsSource = null;
+                    AllGames = null;
+                    var query5 = from p in db.Games
+                                 where p.Platform.Contains("PC")
+                                 select p;
+
+                    AllGames = query5.ToList();
+
+                    lbx_Games.ItemsSource = AllGames;
+                    break;
+            }
         }
     }
 }

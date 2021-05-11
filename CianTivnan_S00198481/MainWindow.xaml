@@ -21,6 +21,12 @@
         <ListBox x:Name="lbx_Games" HorizontalAlignment="Left" Height="279" Margin="149,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="201" DisplayMemberPath="Name" SelectionChanged="lbx_Games_SelectionChanged"/>
         <TextBlock x:Name="tblk_Game" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="64" Width="268" FontSize="24"/>
         <Image x:Name="img_Game" Grid.Column="2" HorizontalAlignment="Left" Height="210" Margin="10,79,0,0" Grid.Row="1" VerticalAlignment="Top" Width="268"/>
-        <ComboBox x:Name="cbx_Platform" HorizontalAlignment="Left" Margin="24,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbx_Platform" HorizontalAlignment="Left" Margin="24,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="cbx_Platform_SelectionChanged">
+            <ComboBoxItem Content="Any"/>
+            <ComboBoxItem Content="PC"/>
+            <ComboBoxItem Content="Playstation"/>
+            <ComboBoxItem Content="Xbox"/>
+            <ComboBoxItem Content="Switch"/>
+        </ComboBox>
     </Grid>
 </Window>
