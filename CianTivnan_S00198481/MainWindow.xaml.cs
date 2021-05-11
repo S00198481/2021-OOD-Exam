@@ -20,6 +20,7 @@ namespace CianTivnan_S00198481
     /// </summary>
     public partial class MainWindow : Window
     {
+        GameData db = new GameData();
         public MainWindow()
         {
             InitializeComponent();
